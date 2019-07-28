@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="mainPane" prefHeight="520.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="打开">
+               <items>
+                  <Menu mnemonicParsing="false" text="模式">
+                     <items>
+                        <MenuItem fx:id="prebuildItem" mnemonicParsing="false" text="  预编译" />
+                        <MenuItem fx:id="newItem" mnemonicParsing="false" text="  新建项目" />
+                        <MenuItem fx:id="compileItem" mnemonicParsing="false" text="  编译工程" />
+                        <MenuItem fx:id="runItem" mnemonicParsing="false" text="  运行工程" />
+                        <MenuItem fx:id="deployItem" mnemonicParsing="false" text="  部署工程" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="加密">
+                    <items>
+                      <MenuItem fx:id="luaItem" mnemonicParsing="false" text="Lua 加密" />
+                        <MenuItem fx:id="jsItem" mnemonicParsing="false" text="JS 加密" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="envItem" mnemonicParsing="false" text="环境变量" />
+                  <MenuItem fx:id="closeItem" mnemonicParsing="false" text="关闭选项卡" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="帮助">
+               <items>
+                  <MenuItem fx:id="helpItem" mnemonicParsing="false" text="使用帮助" />
+                  <MenuItem fx:id="aboutItem" mnemonicParsing="false" text="关于 CCmdTool 1.7" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <StackPane fx:id="defaultPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="label" alignment="CENTER" disable="true" text="欢迎使用 Cocos2dx 命令行简易工具">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets bottom="30.0" />
+               </StackPane.margin>
+            </Label>
+            <Label fx:id="label2" disable="true" text="制作：werelone">
+               <font>
+                  <Font name="Microsoft YaHei" size="16.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="30.0" />
+               </StackPane.margin>
+            </Label>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

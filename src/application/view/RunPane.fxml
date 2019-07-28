@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="418.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.RunPaneController">
+   <bottom>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox spacing="5.0">
+               <children>
+                  <ProgressIndicator fx:id="statusPi" prefHeight="20.0" prefWidth="20.0" />
+                  <Label fx:id="statusLabel" text="就绪" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" top="5.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="基本设置">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="-48.0" layoutY="54.0" prefHeight="302.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TextField fx:id="tfProjectDir" promptText="D:\CocosProject" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="项目路径" GridPane.halignment="CENTER" />
+                              <Label text="目标平台" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <Label text="编译模式" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="cbPlatform" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cbMode" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="静默运行" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                              <CheckBox fx:id="cbQuiet" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </CheckBox>
+                              <Label text="目标平台路径" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <TextField fx:id="tfPlatformPath" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button fx:id="btProjectDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" />
+                              <Button fx:id="btPlatformPath" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label text="输出路径" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <TextField fx:id="tfOutputDir" promptText="不填写则使用默认值" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button fx:id="btOutputDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="80.0" />
+                           </columnConstraints>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="高级设置">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="-59.0" layoutY="-152.0" prefHeight="500.0" prefWidth="700.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label disable="true" text="Web相关参数">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <GridPane prefHeight="500.0" prefWidth="700.0" vgap="10.0">
+                                 <children>
+                                    <Label text="指定浏览器" GridPane.halignment="CENTER" />
+                                    <TextField fx:id="tfBrowerPath" prefWidth="600.0" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip text="设置指定浏览器打开 url。如果未指定使用系统默认浏览器" />
+                                       </tooltip>
+                                    </TextField>
+                                    <Button fx:id="btBrowerPath" minWidth="60.0" mnemonicParsing="false" text="浏览" GridPane.columnIndex="2" />
+                                    <Label text="浏览器参数" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <Label text="本地服务器端口" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <Label text="主机地址" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                    <Label text="模拟器工作目录" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                                    <Label text="关闭模拟器控制台" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                    <TextField fx:id="tfParam" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip text="在设置指定浏览器打开后，添加上特殊参数" />
+                                       </tooltip>
+                                    </TextField>
+                                    <TextField fx:id="tfPort" prefWidth="600.0" promptText="默认值为 8000" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip text="设置本地服务器的端口，默认值为 8000" />
+                                       </tooltip>
+                                    </TextField>
+                                    <TextField fx:id="tfHost" prefWidth="600.0" promptText="默认值为 127.0.0.1" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip text="设置本地服务器的主机地址，默认值为 127.0.0.1" />
+                                       </tooltip>
+                                    </TextField>
+                                    <CheckBox fx:id="cbSimulatorNoConsole" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </CheckBox>
+                                    <TextField fx:id="tfWorkingDir" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip prefWidth="300.0" text="指定 Windows，Mac 和 Linux 下模拟器运行的工作目录（传入命令行参数 '-workdir &quot;&lt;path&gt;&quot;' 给模拟器）" wrapText="true" />
+                                       </tooltip>
+                                    </TextField>
+                                    <Button fx:id="btWorkingDir" minWidth="60.0" mnemonicParsing="false" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="140.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="70.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="输出信息">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="outputTextArea" editable="false" layoutX="31.0" layoutY="30.0" prefHeight="302.0" prefWidth="400.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <Button fx:id="btRun" mnemonicParsing="false" text="运行工程" />
+            <Button fx:id="btCancel" mnemonicParsing="false" text="取消" />
+            <CheckBox fx:id="cbShowConsole" mnemonicParsing="false" text="显示控制台" />
+         </items>
+      </ToolBar>
+   </top>
+</BorderPane>

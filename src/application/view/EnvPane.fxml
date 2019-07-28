@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="418.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.EnvPaneController">
+   <center>
+      <ScrollPane fitToWidth="true" prefHeight="335.0" prefViewportHeight="235.0" prefViewportWidth="310.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox spacing="10.0">
+               <children>
+                  <Label text="Cocos2d 根目录" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvRoot" editable="false" prefHeight="30.0" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenRoot" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                  </HBox>
+                  <Label text="NDK 路径" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvNDK" editable="false" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenNDK" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                  </HBox>
+                  <Label text="SDK 路径" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvSDK" editable="false" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenSDK" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                  </HBox>
+                  <Label text="Ant 路径" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvAnt" editable="false" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenAnt" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Label text="Cocos 控制台路径" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvConsole" editable="false" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenConsole" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                  </HBox>
+                  <Label text="Framework 路径" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvFramework" editable="false" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenFramework" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                  </HBox>
+                  <Label text="Cocos2d 模板路径" />
+                  <HBox>
+                     <children>
+                        <TextField fx:id="tfEnvTemplates" editable="false" prefWidth="500.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btOpenTemplates" minWidth="60.0" mnemonicParsing="false" prefWidth="60.0" text="打开" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </ScrollPane>
+   </center>
+</BorderPane>

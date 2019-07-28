@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="201.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.AboutPaneController">
+   <children>
+      <Label alignment="CENTER" layoutX="168.0" layoutY="55.0" prefHeight="30.0" prefWidth="254.0" text="建议您的cocos2dx版本不高于3.11.1" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="210.0" layoutY="39.0" text="Cocos2dx Cmd Tool 1.7" />
+      <Label layoutX="228.0" layoutY="101.0" text="Made by werelone" />
+      <Button fx:id="btBlog" layoutX="215.0" layoutY="134.0" mnemonicParsing="false" text="访问werelone的博客" />
+      <ImageView fx:id="iconView" fitHeight="110.0" fitWidth="110.0" layoutX="25.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="418.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.JsPaneController">
+   <bottom>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox spacing="5.0">
+               <children>
+                  <ProgressIndicator fx:id="statusPi" prefHeight="20.0" prefWidth="20.0" />
+                  <Label fx:id="statusLabel" text="就绪" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" top="5.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="基本设置">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane hgap="5.0" prefHeight="302.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TextField fx:id="tfProjectDir" prefHeight="30.0" prefWidth="100.0" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="65.0" />
+                                 </GridPane.margin>
+                                 <tooltip>
+                                    <Tooltip text="指定需要编译的 js 文件路径，支持指定多个路径" />
+                                 </tooltip>
+                              </TextField>
+                              <Label text="JS文件路径" GridPane.halignment="CENTER" />
+                              <Button fx:id="btProjectDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                 <tooltip>
+                                    <Tooltip text="指定需要编译的 js 文件路径，支持指定多个路径" />
+                                 </tooltip>
+                              </Button>
+                              <TextField fx:id="tfExParams" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <tooltip>
+                                    <Tooltip prefWidth="300.0" text="传给 closure 编译器的扩展参数。会覆盖 closure 编译器的已有配置" wrapText="true" />
+                                 </tooltip>
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="tfJson" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <tooltip>
+                                    <Tooltip prefWidth="300.0" text="指定 json 格式的 closure 编译器配置，请参考 compiler_config_sample.json。" wrapText="true" />
+                                 </tooltip>
+                                 <GridPane.margin>
+                                    <Insets right="65.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="closure 拓展参数" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                                 <tooltip>
+                                    <Tooltip prefWidth="300.0" text="传给 closure 编译器的扩展参数。会覆盖 closure 编译器的已有配置" wrapText="true" />
+                                 </tooltip>
+                              </Label>
+                              <Label text="closure 配置( json )" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                                 <tooltip>
+                                    <Tooltip prefWidth="300.0" text="指定 json 格式的 closure 编译器配置，请参考 compiler_config_sample.json。" wrapText="true" />
+                                 </tooltip>
+                              </Label>
+                              <Button fx:id="btOutputDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label text="输出路径" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <TextField fx:id="tfOutputDir" prefHeight="30.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="65.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="使用 closure 压缩" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <tooltip>
+                                    <Tooltip text="使用 closure 编译器将所有 js 文件压缩为一个大的文件" />
+                                 </tooltip>
+                              </Label>
+                              <CheckBox fx:id="cbClosure" mnemonicParsing="false" prefHeight="21.0" prefWidth="193.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <tooltip>
+                                    <Tooltip text="使用 closure 编译器将所有 js 文件压缩为一个大的文件" />
+                                 </tooltip>
+                              </CheckBox>
+                              <Button fx:id="btJson" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                                 <tooltip>
+                                    <Tooltip prefWidth="300.0" text="指定 json 格式的 closure 编译器配置，请参考 compiler_config_sample.json。" wrapText="true" />
+                                 </tooltip>
+                              </Button>
+                              <Label text="压缩文件名" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <tooltip>
+                                    <Tooltip text="指定压缩为一个大的 js 文件名称。只有当启用 closure 压缩时起效" />
+                                 </tooltip>
+                              </Label>
+                              <TextField fx:id="tfJsName" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <tooltip>
+                                    <Tooltip text="指定压缩为一个大的 js 文件名称。只有当启用 closure 压缩时起效" />
+                                 </tooltip>
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <CheckBox fx:id="cbVerbose" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </CheckBox>
+                              <Label text="更多输出信息" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="207.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="输出信息">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="outputTextArea" editable="false" layoutX="31.0" layoutY="30.0" prefHeight="302.0" prefWidth="400.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <Button fx:id="btRun" mnemonicParsing="false" prefWidth="80.0" text="加密">
+               <tooltip>
+                  <Tooltip text="将工具复制到工程目录下可以不指定路径直接编译" />
+               </tooltip></Button>
+            <Button fx:id="btCancel" mnemonicParsing="false" text="取消" />
+            <CheckBox fx:id="cbShowConsole" mnemonicParsing="false" text="显示控制台" />
+         </items>
+      </ToolBar>
+   </top>
+</BorderPane>

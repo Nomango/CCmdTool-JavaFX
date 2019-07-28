@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.PrebuildPaneController">
+   <center>
+      <BorderPane prefHeight="418.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <VBox spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <HBox spacing="5.0">
+                     <children>
+                        <ProgressIndicator fx:id="statusPi" prefHeight="20.0" prefWidth="20.0" />
+                        <Label fx:id="statusLabel" text="就绪" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="5.0" top="5.0" />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </bottom>
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab text="基本选项">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="6.0" layoutY="93.0" prefHeight="302.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label text="预编译平台" GridPane.halignment="CENTER" />
+                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="95.0" text="模式" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    	<tooltip>
+                                          <Tooltip prefWidth="300.0" text="指定使用 debug 或者 release 模式来生成预编译库。默认值为 release。" wrapText="true" />
+                                       </tooltip></Label>
+                                    <ComboBox fx:id="cbMode" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <tooltip>
+                                          <Tooltip prefWidth="300.0" text="指定使用 debug 或者 release 模式来生成预编译库。默认值为 release。" wrapText="true" />
+                                       </tooltip></ComboBox>
+                                    <TextField fx:id="tfEnginePath" promptText="不填则使用默认值" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip text="指定引擎文件夹。默认值为当前工具所在的引擎根目录。" />
+                                       </tooltip>
+                                    </TextField>
+                                    <Label alignment="CENTER" prefHeight="33.0" prefWidth="100.0" text="引擎路径" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <tooltip>
+                                          <Tooltip text="指定引擎文件夹。默认值为当前工具所在的引擎根目录。" />
+                                       </tooltip></Label>
+                                    <Button fx:id="btEnginePath" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <CheckBox fx:id="cbPlatformWin32" mnemonicParsing="false" selected="true" text="win32" GridPane.columnIndex="1" />
+                                          <CheckBox fx:id="cbPlatformAndroid" mnemonicParsing="false" text="Android" GridPane.columnIndex="1" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="80.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="高级选项">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="6.0" layoutY="93.0" prefHeight="302.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <children>
+                                    <Label text="可选项" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="cbClean" mnemonicParsing="false" text="删除旧的预编译文件" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                                       <tooltip>
+                                          <Tooltip text="生成预编译库之前先删除 'prebuilt' 文件夹" />
+                                       </tooltip></CheckBox>
+                                    <Label text="指定VS版本" GridPane.halignment="CENTER" />
+                                    <TextField fx:id="tfVSVersion" promptText="不填则自动查找" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip text="指定使用的 Visual Studio 版本，例如2013。默认自动查找可用的版本。" />
+                                       </tooltip></TextField>
+                                    <TextField fx:id="tfAPP_ABI" promptText="默认为armeabi，用 : 分隔多个值" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="5.0" />
+                                       </GridPane.margin>
+                                       <tooltip>
+                                          <Tooltip prefWidth="300.0" text="设置 ndk-build 的 APP_ABI 属性。可以使用 ':' 分隔多个值。示例：--app-aib armeabi:x86:mips。默认值为 'armeabi'。" wrapText="true" />
+                                       </tooltip></TextField>
+                                    <Label alignment="CENTER" prefHeight="20.0" prefWidth="127.0" text="APP_ABI" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <tooltip>
+                                          <Tooltip prefWidth="300.0" text="设置 ndk-build 的 APP_ABI 属性。可以使用 ':' 分隔多个值。示例：--app-aib armeabi:x86:mips。默认值为 'armeabi'。" wrapText="true" />
+                                       </tooltip></Label>
+                                    <CheckBox fx:id="cbCloseStrip" mnemonicParsing="false" text="关闭 strip 功能" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <tooltip>
+                                          <Tooltip text="关闭生成预编译库的 strip 功能" />
+                                       </tooltip></CheckBox>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="200.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="输出信息">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="outputTextArea" editable="false" layoutX="31.0" layoutY="30.0" prefHeight="302.0" prefWidth="400.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <items>
+                  <Button fx:id="btRun" mnemonicParsing="false" prefWidth="80.0" text="运行">
+                     <tooltip>
+                        <Tooltip prefWidth="300.0" text="预编译时电脑将长时间高负荷运转，每个平台编译时间约为10~30分钟。" wrapText="true" />
+                     </tooltip></Button>
+                  <Button fx:id="btBuildTemplate" mnemonicParsing="false" text="生成预编译模板">
+                     <tooltip>
+                        <Tooltip text="生成用于 Cocos Framework 环境的模板" />
+                     </tooltip></Button>
+                  <Button fx:id="btCancel" mnemonicParsing="false" text="取消" />
+                  <CheckBox fx:id="cbShowConsole" mnemonicParsing="false" selected="true" text="显示控制台" />
+               </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>

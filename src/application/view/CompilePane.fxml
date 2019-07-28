@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="418.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.CompilePaneController">
+   <bottom>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox spacing="5.0">
+               <children>
+                  <ProgressIndicator fx:id="statusPi" prefHeight="20.0" prefWidth="20.0" />
+                  <Label fx:id="statusLabel" text="就绪" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" top="5.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="基本设置">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="334.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TextField fx:id="tfProjectDir" promptText="D:\CocosProject" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="项目路径" GridPane.halignment="CENTER" />
+                              <Label text="发布平台" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="编译模式" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="cbPlatform" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="cbMode" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="静默运行" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <tooltip>
+                                    <Tooltip text="控制台显示较少的输出" />
+                                 </tooltip></Label>
+                              <CheckBox fx:id="cbQuiet" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <tooltip>
+                                    <Tooltip text="控制台显示较少的输出" />
+                                 </tooltip>
+                              </CheckBox>
+                              <Button fx:id="btProjectDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="207.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="80.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="高级设置">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="334.0" prefViewportHeight="191.0" prefViewportWidth="374.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <GridPane vgap="10.0">
+                                       <children>
+                                          <TextField fx:id="tfOutputDir" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label text="输出路径" GridPane.halignment="CENTER" />
+                                          <Label text="CPU数量" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <TextField fx:id="tfCPUNumber" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="150.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="指定使用几个 cpu 进行编译" />
+                                             </tooltip>
+                                          </TextField>
+                                          <Label text="目标平台路径" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                          <TextField fx:id="tfProjDir" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Button fx:id="btOutputDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" />
+                                          <Button fx:id="btProjDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="195.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="80.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                       </padding></Separator>
+                                    <Label disable="true" text="Android相关参数">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin></Label>
+                                    <GridPane vgap="10.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="26.0" prefWidth="141.0" text="使用AS工程" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                                             <tooltip>
+                                                <Tooltip text="使用 Android Studio 工程来编译 Android 平台" />
+                                             </tooltip></Label>
+                                          <CheckBox fx:id="cbUsingAS" mnemonicParsing="false" prefHeight="21.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="使用 Android Studio 工程来编译 Android 平台" />
+                                             </tooltip>
+                                          </CheckBox>
+                                          <Label alignment="CENTER" prefHeight="29.0" prefWidth="142.0" text="不生成apk" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                                             <tooltip>
+                                                <Tooltip text="不生成 APK 文件" />
+                                             </tooltip></Label>
+                                          <CheckBox fx:id="cbNoApk" mnemonicParsing="false" prefHeight="21.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="不生成 APK 文件" />
+                                             </tooltip>
+                                          </CheckBox>
+                                          <TextField fx:id="tfAndroidPlatform" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="指定编译 Android 工程所需使用的目标平台" />
+                                             </tooltip>
+                                          </TextField>
+                                          <Label text="目标平台" GridPane.halignment="CENTER" />
+                                          <ComboBox fx:id="cbNdkMode" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <tooltip>
+                                                <Tooltip prefWidth="300.0" text="设置 ndk-build 的模式，如果指定为 none，ndk-build 不会被调用。默认值与基本设置中编译模式相同。" wrapText="true" />
+                                             </tooltip></ComboBox>
+                                          <Label text="ndk-build模式" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label text="APP_ABI" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                          <TextField fx:id="tfAPP_ABI" promptText="默认值为 armeabi" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip prefWidth="300.0" text="设置 ndk-build 的 APP_ABI 属性。可以使用 ':' 分隔多个值。示例：--app-aib armeabi:x86:mips。默认值为 'armeabi'。" wrapText="true" />
+                                             </tooltip>
+                                          </TextField>
+                                          <TextField fx:id="tfNdkToolChain" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="指定 ndk-build 的 NDK_TOOLCHAIN 属性" />
+                                             </tooltip>
+                                          </TextField>
+                                          <Label text="NDK_TOOLCHAIN" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                          <TextField fx:id="tfAppCppFlags" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="指定 ndk-build 的 APP_CPPFLAGS 属性" />
+                                             </tooltip>
+                                          </TextField>
+                                          <Label text="APP_CPPFLAGS" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="123.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="215.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                       </padding></Separator>
+                                    <Label disable="true" text="Windows相关参数">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin></Label>
+                                    <GridPane>
+                                       <children>
+                                          <Label text="指定VS版本" GridPane.halignment="CENTER" />
+                                          <ComboBox fx:id="cbVSversion" prefWidth="150.0" GridPane.columnIndex="1" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="123.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="215.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                       </padding>
+                                    </Separator>
+                                    <Label disable="true" text="Web相关参数">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <GridPane vgap="10.0">
+                                       <children>
+                                          <Label text="启用source-map" GridPane.halignment="CENTER" />
+                                          <CheckBox fx:id="cbSource_map" mnemonicParsing="false" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <Label text="使用closure高级模式" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                             <tooltip>
+                                                <Tooltip prefWidth="300.0" text="使用 closure 编译器的高级模式编译 js 文件，会获得更高的压缩率，但是有出现 bug 的风险。" wrapText="true" />
+                                             </tooltip></Label>
+                                          <CheckBox fx:id="cbAdvance" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip prefWidth="300.0" text="使用 closure 编译器的高级模式编译 js 文件，会获得更高的压缩率，但是有出现 bug 的风险。" wrapText="true" />
+                                             </tooltip>
+                                          </CheckBox>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="123.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="215.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                       </padding>
+                                    </Separator>
+                                    <Label disable="true" text="js / lua相关参数">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <GridPane vgap="10.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="26.0" prefWidth="139.0" text="不包含工程资源" GridPane.halignment="CENTER">
+                                             <tooltip>
+                                                <Tooltip text="指定生成的包中不包含工程资源文件" />
+                                             </tooltip></Label>
+                                          <CheckBox fx:id="cbNores" mnemonicParsing="false" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <Label text="编译 lua/js 脚本文件" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                             <tooltip>
+                                                <Tooltip text="开启编译 lua/js 脚本文件的功能" />
+                                             </tooltip></Label>
+                                          <CheckBox fx:id="cbCompileScript" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="123.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="215.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <Separator prefWidth="200.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                       </padding>
+                                    </Separator>
+                                    <Label disable="true" text="lua相关参数">
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <GridPane vgap="10.0">
+                                       <children>
+                                          <Label text="启用 XXTEA 加密" GridPane.halignment="CENTER" />
+                                          <CheckBox fx:id="cbLuaEncrypt" mnemonicParsing="false" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </CheckBox>
+                                          <Label text="指定 XXTEA 的 key" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                             <tooltip>
+                                                <Tooltip text="指定 XXTEA 加密功能的 key 字段" />
+                                             </tooltip></Label>
+                                          <Label text="指定 XXTEA 的 sign" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                             <tooltip>
+                                                <Tooltip text="指定 XXTEA 加密功能的 sign 字段" />
+                                             </tooltip></Label>
+                                          <TextField fx:id="tfLuaKey" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="指定 XXTEA 加密功能的 key 字段" />
+                                             </tooltip>
+                                          </TextField>
+                                          <TextField fx:id="tfLuaSign" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets right="5.0" />
+                                             </GridPane.margin>
+                                             <tooltip>
+                                                <Tooltip text="指定 XXTEA 加密功能的 sign 字段" />
+                                             </tooltip>
+                                          </TextField>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="123.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="215.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="5.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="输出信息">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="outputTextArea" editable="false" layoutX="31.0" layoutY="30.0" prefHeight="302.0" prefWidth="400.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <Button fx:id="btRun" mnemonicParsing="false" text="编译工程">
+               <tooltip>
+                  <Tooltip text="将工具复制到工程目录下可以不指定路径直接编译" />
+               </tooltip></Button>
+            <Button fx:id="btCancel" mnemonicParsing="false" text="取消" />
+            <CheckBox fx:id="cbShowConsole" mnemonicParsing="false" text="显示控制台" />
+         </items>
+      </ToolBar>
+   </top>
+</BorderPane>

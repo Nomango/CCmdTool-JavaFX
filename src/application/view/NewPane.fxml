@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="418.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.NewPaneController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="btRun" mnemonicParsing="false" text="新建项目" />
+            <Button fx:id="btCancel" mnemonicParsing="false" text="取消" />
+            <CheckBox fx:id="cbShowConsole" mnemonicParsing="false" text="显示控制台" />
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="基本设置">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="21.0" layoutY="64.0" prefHeight="302.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TextField fx:id="tfProjectName" promptText="HelloCocos" text="HelloCocos" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="项目名称" GridPane.halignment="CENTER" />
+                              <TextField fx:id="tfOutputDir" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                                 <tooltip>
+                                    <Tooltip text="设置工程存放路径" />
+                                 </tooltip>
+                              </TextField>
+                              <Label text="输出路径" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="包名" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <TextField fx:id="tfPackageName" promptText="org.cocos2dx.hellococos" text="org.cocos2dx.hellococos" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label text="项目语言" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <Label text="引擎类型" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="cbLanguage" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <tooltip>
+                                    <Tooltip text="设置工程使用的编程语言" />
+                                 </tooltip></ComboBox>
+                              <ComboBox fx:id="cbEngineType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button fx:id="btOutputDir" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="220.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="80.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="高级设置">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutY="14.0" prefHeight="302.0" prefWidth="400.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="屏幕方向" GridPane.halignment="CENTER" />
+                              <ComboBox fx:id="cbScreen" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <Label text="引擎路径" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <TextField fx:id="tfEnginePath" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button fx:id="btEnginePath" mnemonicParsing="false" prefWidth="60.0" text="浏览" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label text="模板名称" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                              <TextField fx:id="tfTemplateName" promptText="不填写则使用默认模板" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button fx:id="btGetTemplatesName" mnemonicParsing="false" prefWidth="60.0" text="获取" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <tooltip>
+                                    <Tooltip text="列出所有可用的模版名称" />
+                                 </tooltip></Button>
+                              <Label text="可选项" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                              <CheckBox mnemonicParsing="false" text="取消原生工程" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <tooltip>
+                                    <Tooltip text="lua/js 工程可用参数 : 设置新建的工程不包含 C++ 代码与各平台工程。" />
+                                 </tooltip>
+                              </CheckBox>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="220.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="80.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="输出信息">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="outputTextArea" editable="false" layoutX="31.0" layoutY="30.0" prefHeight="302.0" prefWidth="400.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <bottom>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox spacing="5.0">
+               <children>
+                  <ProgressIndicator fx:id="statusPi" prefHeight="20.0" prefWidth="20.0" />
+                  <Label fx:id="statusLabel" text="就绪" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" top="5.0" />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+</BorderPane>
